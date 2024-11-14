@@ -3,6 +3,7 @@ package com.joaovitor.listagames.service;
 import com.joaovitor.listagames.dto.GameDTO;
 import com.joaovitor.listagames.dto.GameMinDTO;
 import com.joaovitor.listagames.entities.Game;
+import com.joaovitor.listagames.projections.GameMinProjection;
 import com.joaovitor.listagames.repository.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,5 +29,11 @@ public class GameService {
 
         //TODO: Fazer o tratamento de exceção caso o game não seja encontrado.
         return new GameDTO(resultado);
+    }
+
+    public List<GameMinDTO> findByList(Long listId) {
+        List<GameMinProjection> resultado = gameRepository.searchByList(listId);
+
+        return resultado.stream().map(GameMinDTO::new).toList();
     }
 }

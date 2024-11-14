@@ -1,6 +1,7 @@
 package com.joaovitor.listagames.dto;
 
 import com.joaovitor.listagames.entities.Game;
+import com.joaovitor.listagames.projections.GameMinProjection;
 import lombok.Getter;
 
 @Getter
@@ -25,5 +26,13 @@ public class GameMinDTO {
         ano = entity.getAno();
         imgUrl = entity.getImgUrl();
         descrisaoCurta = entity.getDescrisaoCurta();
+    }
+
+    public GameMinDTO(GameMinProjection projection) {
+        id = projection.getId();
+        titulo = projection.getTitulo();
+        ano = projection.getAno();
+        imgUrl = projection.getImgUrl();
+        descrisaoCurta = projection.getDescrisaoCurta();
     }
 }
