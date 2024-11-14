@@ -17,7 +17,7 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nome;
+    private String titulo;
 
     private Integer ano;
 
@@ -29,8 +29,10 @@ public class Game {
 
     private String imgUrl;
 
+    @Column(columnDefinition = "TEXT")
     private String descrisaoCurta;
 
+    @Column(columnDefinition = "TEXT")
     private String descrisaoLonga;
 
 //    Tudo feito com Lombok, comentario só para demonstrar.
@@ -39,9 +41,9 @@ public class Game {
 //    }
 //
 //    Construtor com args.
-//    public Game(Long id, String nome, Integer ano, String genero, String plataforma, Double score, String imgUrl, String descrisaoCurta, String descrisaoLonga) {
+//    public Game(Long id, String titulo, Integer ano, String genero, String plataforma, Double score, String imgUrl, String descrisaoCurta, String descrisaoLonga) {
 //        this.id = id;
-//        this.nome = nome;
+//        this.titulo = titulo;
 //        this.ano = ano;
 //        this.genero = genero;
 //        this.plataforma = plataforma;
@@ -60,12 +62,12 @@ public class Game {
 //        this.id = id;
 //    }
 //
-//    public String getNome() {
-//        return nome;
+//    public String getTitulo() {
+//        return titulo;
 //    }
 //
-//    public void setNome(String nome) {
-//        this.nome = nome;
+//    public void setTitulo(String titulo) {
+//        this.titulo = titulo;
 //    }
 //
 //    public Integer getAno() {
