@@ -17,13 +17,6 @@ public class GameService {
     private GameRepository gameRepository;
 
     @Transactional(readOnly = true)
-    public List<GameMinDTO> findAll() {
-        List<Game> resultado = gameRepository.findAll();
-
-        return resultado.stream().map(GameMinDTO::new).toList();
-    }
-
-    @Transactional(readOnly = true)
     public GameDTO findById(Long gameId) {
         Game resultado = gameRepository.findById(gameId).get();
 
@@ -31,6 +24,14 @@ public class GameService {
         return new GameDTO(resultado);
     }
 
+    @Transactional(readOnly = true)
+    public List<GameMinDTO> findAll() {
+        List<Game> resultado = gameRepository.findAll();
+
+        return resultado.stream().map(GameMinDTO::new).toList();
+    }
+
+    @Transactional(readOnly = true)
     public List<GameMinDTO> findByList(Long listId) {
         List<GameMinProjection> resultado = gameRepository.searchByList(listId);
 
